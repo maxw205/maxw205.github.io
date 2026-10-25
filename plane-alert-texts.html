@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plane Alert Texts &middot; Max</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+    }
+    h1 { margin-bottom: 4px; }
+    .tagline { color: #666; margin-top: 0; }
+    h2 { border-bottom: 1px solid #ddd; padding-bottom: 4px; margin-top: 32px; }
+    a { color: #0366d6; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { font-size: 0.95em; }
+    blockquote { margin: 12px 0; padding: 8px 14px; border-left: 3px solid #ddd; color: #444; }
+    code { font-size: 0.92em; background: #f4f4f4; padding: 1px 4px; border-radius: 3px; }
+    footer { margin-top: 40px; color: #888; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+
+  <p class="back"><a href="index.html">&larr; Back to home</a></p>
+
+  <h1>Plane Alert Texts</h1>
+  <p class="tagline">An app for sending text alerts about plane flights.</p>
+
+  <h2>Overview</h2>
+  <p>
+    Plane Alert Texts watches a few specific flights (Empire Airlines 7275,
+    FedEx 1123, and FedEx 1106) and sends a text when one of them gets within
+    75 miles of Fort Worth Alliance Airport (KAFW). Each text says how far out
+    the plane is, its altitude and speed, and roughly how many minutes until it
+    arrives:
+  </p>
+  <blockquote>FX1123 is 42 mi from Alliance, 18,500 ft, 410 kt, ~5 min out.</blockquote>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Live tracking of chosen flights near Alliance Airport</li>
+    <li>Text alerts with distance, altitude, speed, and estimated arrival</li>
+    <li>No repeat texts about the same flight within 6 hours</li>
+    <li>Flight lookups (route, schedule, delays, aircraft) through FlightAware</li>
+    <li>Extra tools to list every aircraft near Alliance, or every FedEx plane over the US</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <p>
+    Every 60 seconds, the script asks the OpenSky Network for live positions of
+    aircraft in a box around KAFW and keeps the ones within the alert radius.
+    It matches their callsigns against the tracked flights, converting airline
+    codes as it goes (FlightAware uses <code>FX1123</code>, OpenSky reports
+    <code>FDX1123</code>). When a tracked flight is airborne and in range, it
+    sends the alert through the Twilio API, then waits 6 hours before alerting
+    about that flight again.
+  </p>
+
+  <h2>Built with</h2>
+  <ul>
+    <li>Python with <code>requests</code></li>
+    <li>OpenSky Network API for live aircraft positions</li>
+    <li>FlightAware AeroAPI for flight schedules and details</li>
+    <li>Twilio for sending text messages</li>
+  </ul>
+
+  <h2>Privacy</h2>
+  <p>
+    If you sign up for text alerts, see the
+    <a href="plane-alert-texts-privacy.html">privacy policy</a> for how your
+    phone number and information are handled.
+  </p>
+
+  <h2>Links</h2>
+  <p>
+    <a href="https://github.com/maxw205/plane-texting-project">Source code on GitHub</a>
+  </p>
+
+  <footer>&copy; 2026 Max</footer>
+
+</body>
+</html>
