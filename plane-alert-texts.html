@@ -46,7 +46,6 @@
   <ul>
     <li>Live tracking of chosen flights near Alliance Airport</li>
     <li>Text alerts with distance, altitude, speed, and estimated arrival</li>
-    <li>No repeat texts about the same flight within 6 hours</li>
     <li>Flight lookups (route, schedule, delays, aircraft) through FlightAware</li>
     <li>Extra tools to list every aircraft near Alliance, or every FedEx plane over the US</li>
   </ul>
@@ -58,8 +57,7 @@
     It matches their callsigns against the tracked flights, converting airline
     codes as it goes (FlightAware uses <code>FX1123</code>, OpenSky reports
     <code>FDX1123</code>). When a tracked flight is airborne and in range, it
-    sends the alert through the Twilio API, then waits 6 hours before alerting
-    about that flight again.
+    sends the alert through the Twilio API.
   </p>
 
   <h2>Built with</h2>
@@ -70,11 +68,13 @@
     <li>Twilio for sending text messages</li>
   </ul>
 
-  <h2>Privacy</h2>
+  <h2>Privacy and terms</h2>
   <p>
     If you sign up for text alerts, see the
     <a href="plane-alert-texts-privacy.html">privacy policy</a> for how your
-    phone number and information are handled.
+    phone number and information are handled, and the
+    <a href="plane-alert-texts-terms.html">terms and conditions</a> for the
+    rules of the text alert program.
   </p>
 
   <h2>Links</h2>
