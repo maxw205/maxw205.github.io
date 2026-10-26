@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pen-Sized Marshall Wand &middot; Max</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+    }
+    h1 { margin-bottom: 4px; }
+    .tagline { color: #666; margin-top: 0; }
+    h2 { border-bottom: 1px solid #ddd; padding-bottom: 4px; margin-top: 32px; }
+    a { color: #0366d6; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { font-size: 0.95em; }
+    figure { margin: 16px 0; }
+    figure img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; }
+    figcaption { color: #666; font-size: 0.9em; margin-top: 4px; }
+    footer { margin-top: 40px; color: #888; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+
+  <p class="back"><a href="index.html">&larr; Back to home</a></p>
+
+  <h1>Pen-Sized Marshall Wand</h1>
+  <p class="tagline">A hardware prototype of a marshalling wand small enough to carry like a pen.</p>
+
+  <h2>Overview</h2>
+  <p>
+    At my Fedex airport hub, the ramp crews marshall wand batons for guiding aircraft and also all vehicles and contains
+    near aircraft, due to operations at night. Many times, the wands are left on equipment or in vehicles, causing someone to
+    go find them, then come back to guide the vehicle. Therefore, the idea came to me to create pen sized versions of
+    marshalling wands for people to carry in their vests, so they can always be ready to guide vehicles. These are not intended
+    to marshall aircraft, as the distance and size of the wand are not sufficient for that, but this is practical enough for 
+    guiding vehicles to the aircraft.
+  </p>
+
+  <h2>Breadboard mock-up</h2>
+  <p>
+    The first mock-up runs off a single AA battery. A Pololu 5V Step-Up Voltage
+    Regulator (U1V11F5) boosts the battery's roughly 1.5V up to 5V, which powers
+    a red 5V COB LED strip. A slide switch turns it on and off. The final design will use a
+    AAA battery instead, but I accidentally ordered an AA battery holder for this prototype.
+    It will not make a difference because they run at approximately the same voltage.
+  </p>
+  <figure>
+    <img src="images/marshall-wand-breadboard.webp" alt="Breadboard circuit with an AA battery holder and Pololu step-up regulator lighting a red COB LED strip">
+    <figcaption>Let there be light!</figcaption>
+  </figure>
+
+  <h2>Schematic</h2>
+  <p>
+    Once the breadboard circuit was working, I designed a KiCad schematic of the circuit, so I could potentially
+    design a PCB for the future, and to also make sure I had the correct connections, and also document properly the design.
+  </p>
+  <figure>
+    <img src="images/marshall-wand-schematic.png" alt="KiCad schematic: battery BT1 through slide switch SW1 into Pololu U1V11F5 VIN, with VOUT at +5V driving the red COB LED strip D1">
+    <figcaption>KiCad schematic of the prototype circuit.</figcaption>
+  </figure>
+
+  <h2>Parts</h2>
+  <ul>
+    <li>AAA battery (1.5V)</li>
+    <li>Pololu 5V Step-Up Voltage Regulator U1V11F5</li>
+    <li>Slide switch</li>
+    <li>Red 5V COB LED strip</li>
+  </ul>
+
+  <footer>&copy; 2026 Apron Labs</footer>
+
+</body>
+</html>
